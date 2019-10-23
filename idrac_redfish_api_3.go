@@ -229,8 +229,8 @@ func main() {
 	ID          string `json:"Id"`
 	Name        string `json:"Name"`
 }
-   request := gorequest.New().TLSClientConfig(&tls.Config{ InsecureSkipVerify: true}).SetBasicAuth("root", "nfv1234")
-   _, body, _ := request.Get("https://100.67.146.10/redfish/v1/Systems/System.Embedded.1/Bios").End()
+   request := gorequest.New().TLSClientConfig(&tls.Config{ InsecureSkipVerify: true}).SetBasicAuth(<user_name>, <password>)
+   _, body, _ := request.Get("https://<ip_address>/redfish/v1/Systems/System.Embedded.1/Bios").End()
    var b2 biosStruct
    json.Unmarshal([]byte(body), &b2)
    fmt.Println(b2.Attributes.BootMode)
